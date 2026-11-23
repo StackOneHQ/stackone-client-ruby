@@ -24,6 +24,8 @@ module StackOne
         field :category, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
         # Filter by connector keys
         field :connector_key, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_key') } }
+        # Filter by connector profile IDs
+        field :connector_profile_id, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_id') } }
         # Filter by connector versions
         field :connector_version, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_version') } }
         # The end of the time range to filter by (ISO 8601 timestamp)
@@ -51,14 +53,15 @@ module StackOne
         # Filter by success status
         field :success, Crystalline::Nilable.new(Crystalline::Boolean.new), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('success') } }
 
-        sig { params(account_secure_id: T.nilable(T::Array[::String]), action_id: T.nilable(T::Array[::String]), action_run_id: T.nilable(T::Array[::String]), action_type: T.nilable(T::Array[::String]), category: T.nilable(T::Array[::String]), connector_key: T.nilable(T::Array[::String]), connector_version: T.nilable(T::Array[::String]), end_time: T.nilable(::String), http_method: T.nilable(T::Array[Models::Shared::HttpMethod]), mode: T.nilable(T::Array[::String]), order_by: T.nilable(Models::Shared::OrderBy), order_direction: T.nilable(Models::Shared::OrderDirection), origin_owner_id: T.nilable(T::Array[::String]), origin_owner_name: T.nilable(T::Array[::String]), source_id: T.nilable(T::Array[::String]), source_type: T.nilable(T::Array[::String]), start_time: T.nilable(::String), status_code: T.nilable(T::Array[::String]), success: T.nilable(T::Boolean)).void }
-        def initialize(account_secure_id: nil, action_id: nil, action_run_id: nil, action_type: nil, category: nil, connector_key: nil, connector_version: nil, end_time: nil, http_method: nil, mode: nil, order_by: nil, order_direction: nil, origin_owner_id: nil, origin_owner_name: nil, source_id: nil, source_type: nil, start_time: nil, status_code: nil, success: nil)
+        sig { params(account_secure_id: T.nilable(T::Array[::String]), action_id: T.nilable(T::Array[::String]), action_run_id: T.nilable(T::Array[::String]), action_type: T.nilable(T::Array[::String]), category: T.nilable(T::Array[::String]), connector_key: T.nilable(T::Array[::String]), connector_profile_id: T.nilable(T::Array[::String]), connector_version: T.nilable(T::Array[::String]), end_time: T.nilable(::String), http_method: T.nilable(T::Array[Models::Shared::HttpMethod]), mode: T.nilable(T::Array[::String]), order_by: T.nilable(Models::Shared::OrderBy), order_direction: T.nilable(Models::Shared::OrderDirection), origin_owner_id: T.nilable(T::Array[::String]), origin_owner_name: T.nilable(T::Array[::String]), source_id: T.nilable(T::Array[::String]), source_type: T.nilable(T::Array[::String]), start_time: T.nilable(::String), status_code: T.nilable(T::Array[::String]), success: T.nilable(T::Boolean)).void }
+        def initialize(account_secure_id: nil, action_id: nil, action_run_id: nil, action_type: nil, category: nil, connector_key: nil, connector_profile_id: nil, connector_version: nil, end_time: nil, http_method: nil, mode: nil, order_by: nil, order_direction: nil, origin_owner_id: nil, origin_owner_name: nil, source_id: nil, source_type: nil, start_time: nil, status_code: nil, success: nil)
           @account_secure_id = account_secure_id
           @action_id = action_id
           @action_run_id = action_run_id
           @action_type = action_type
           @category = category
           @connector_key = connector_key
+          @connector_profile_id = connector_profile_id
           @connector_version = connector_version
           @end_time = end_time
           @http_method = http_method
@@ -83,6 +86,7 @@ module StackOne
           return false unless @action_type == other.action_type
           return false unless @category == other.category
           return false unless @connector_key == other.connector_key
+          return false unless @connector_profile_id == other.connector_profile_id
           return false unless @connector_version == other.connector_version
           return false unless @end_time == other.end_time
           return false unless @http_method == other.http_method

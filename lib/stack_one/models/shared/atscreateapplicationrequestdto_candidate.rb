@@ -29,7 +29,7 @@ module StackOne
         # Candidate name
         field :name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('name') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The candidate personal phone number
         #
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -41,9 +41,9 @@ module StackOne
         # Candidate title
         field :title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('title') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
-        sig { params(company: T.nilable(::String), country: T.nilable(::String), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), phone_number: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object])).void }
+        sig { params(company: T.nilable(::String), country: T.nilable(::String), custom_fields: T.nilable(T::Array[Models::Shared::CustomFields]), email: T.nilable(::String), first_name: T.nilable(::String), hired_at: T.nilable(::DateTime), last_name: T.nilable(::String), name: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), phone_number: T.nilable(::String), phone_numbers: T.nilable(T::Array[Models::Shared::PhoneNumber]), social_links: T.nilable(T::Array[Models::Shared::SocialLink]), title: T.nilable(::String), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object])).void }
         def initialize(company: nil, country: nil, custom_fields: nil, email: nil, first_name: nil, hired_at: nil, last_name: nil, name: nil, passthrough: nil, phone_number: nil, phone_numbers: nil, social_links: nil, title: nil, unified_custom_fields: nil)
           @company = company
           @country = country

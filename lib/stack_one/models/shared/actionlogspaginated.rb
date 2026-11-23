@@ -14,15 +14,18 @@ module StackOne
 
         # The list of action logs
         field :data, Crystalline::Array.new(Models::Shared::ActionLog), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data'), required: true } }
-        # Pagination metadata
-        field :query, Crystalline::Nilable.new(Models::Shared::Query), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('query') } }
-        # Total number of logs
-        field :total, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('total') } }
+        # The page number returned
+        field :page, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('page'), required: true } }
+        # The number of results per page
+        field :page_size, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('page_size'), required: true } }
+        # Total number of logs matching the filters
+        field :total, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('total'), required: true } }
 
-        sig { params(data: T::Array[Models::Shared::ActionLog], query: T.nilable(Models::Shared::Query), total: T.nilable(::Float)).void }
-        def initialize(data:, query: nil, total: nil)
+        sig { params(data: T::Array[Models::Shared::ActionLog], page: ::Float, page_size: ::Float, total: ::Float).void }
+        def initialize(data:, page:, page_size:, total:)
           @data = data
-          @query = query
+          @page = page
+          @page_size = page_size
           @total = total
         end
 
@@ -30,7 +33,8 @@ module StackOne
         def ==(other)
           return false unless other.is_a? self.class
           return false unless @data == other.data
-          return false unless @query == other.query
+          return false unless @page == other.page
+          return false unless @page_size == other.page_size
           return false unless @total == other.total
           true
         end

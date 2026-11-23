@@ -15,7 +15,7 @@ module StackOne
         # HTTP response content type for this operation
         field :content_type, ::String
 
-        field :headers, Crystalline::Hash.new(Symbol, Crystalline::Array.new(::String))
+        field :headers, Crystalline::Hash.new(::Symbol, Crystalline::Array.new(::String))
         # HTTP response status code for this operation
         field :status_code, ::Integer
         # Raw HTTP response; suitable for custom response parsing
@@ -23,7 +23,7 @@ module StackOne
         # The project component with the given identifier was retrieved.
         field :ticketing_component_result, Crystalline::Nilable.new(Models::Shared::TicketingComponentResult)
 
-        sig { params(content_type: ::String, headers: T::Hash[Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, ticketing_component_result: T.nilable(Models::Shared::TicketingComponentResult)).void }
+        sig { params(content_type: ::String, headers: T::Hash[::Symbol, T::Array[::String]], status_code: ::Integer, raw_response: ::Faraday::Response, ticketing_component_result: T.nilable(Models::Shared::TicketingComponentResult)).void }
         def initialize(content_type:, headers:, status_code:, raw_response:, ticketing_component_result: nil)
           @content_type = content_type
           @headers = headers

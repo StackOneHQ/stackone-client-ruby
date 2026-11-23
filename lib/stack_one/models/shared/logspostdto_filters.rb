@@ -32,6 +32,8 @@ module StackOne
         field :category, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('category') } }
         # Filter by child resources
         field :child_resource, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('child_resource') } }
+        # Comparisons applied to list, count, stats and facets before pagination
+        field :conditions, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LogQueryConditionDto)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('conditions') } }
         # Filter by connector keys
         field :connector_key, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_key') } }
         # Filter by connector owners
@@ -68,6 +70,8 @@ module StackOne
         field :request_id, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('request_id') } }
         # Filter by resources
         field :resource, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('resource') } }
+        # Filter by Defender risk level
+        field :risk_level, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::LogsPostDtoRiskLevel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('risk_level') } }
         # Filter by services
         field :service, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('service') } }
         # Filter by session IDs
@@ -95,8 +99,8 @@ module StackOne
         # Filter by user agents
         field :user_agent, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('user_agent') } }
 
-        sig { params(account_secure_id: T.nilable(T::Array[::String]), action: T.nilable(T::Array[::String]), action_id: T.nilable(T::Array[::String]), action_run_id: T.nilable(T::Array[::String]), action_type: T.nilable(T::Array[::String]), agent_id: T.nilable(T::Array[::String]), auth_id: T.nilable(T::Array[::String]), auth_type: T.nilable(T::Array[::String]), category: T.nilable(T::Array[::String]), child_resource: T.nilable(T::Array[::String]), connector_key: T.nilable(T::Array[::String]), connector_owner: T.nilable(T::Array[::String]), connector_profile_id: T.nilable(T::Array[::String]), connector_version: T.nilable(T::Array[::String]), end_time: T.nilable(::String), http_method: T.nilable(T::Array[Models::Shared::LogsPostDtoHttpMethod]), ip_address: T.nilable(T::Array[::String]), is_background: T.nilable(T::Boolean), log_id: T.nilable(T::Array[::String]), log_type: T.nilable(T::Array[Models::Shared::LogsPostDtoLogType]), mode: T.nilable(T::Array[::String]), order_by: T.nilable(Models::Shared::LogsPostDtoOrderBy), order_direction: T.nilable(Models::Shared::LogsPostDtoOrderDirection), origin_owner_id: T.nilable(T::Array[::String]), origin_owner_name: T.nilable(T::Array[::String]), provider: T.nilable(T::Array[::String]), request_id: T.nilable(T::Array[::String]), resource: T.nilable(T::Array[::String]), service: T.nilable(T::Array[::String]), session_id: T.nilable(T::Array[::String]), source_id: T.nilable(T::Array[::String]), source_type: T.nilable(T::Array[::String]), source_value: T.nilable(T::Array[::String]), start_time: T.nilable(::String), status_code: T.nilable(T::Array[::String]), stream_type: T.nilable(T::Array[::String]), sub_resource: T.nilable(T::Array[::String]), success: T.nilable(T::Boolean), transport_type: T.nilable(T::Array[::String]), tuples: T.nilable(T::Array[::String]), user_agent: T.nilable(T::Array[::String])).void }
-        def initialize(account_secure_id: nil, action: nil, action_id: nil, action_run_id: nil, action_type: nil, agent_id: nil, auth_id: nil, auth_type: nil, category: nil, child_resource: nil, connector_key: nil, connector_owner: nil, connector_profile_id: nil, connector_version: nil, end_time: nil, http_method: nil, ip_address: nil, is_background: nil, log_id: nil, log_type: nil, mode: nil, order_by: nil, order_direction: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, request_id: nil, resource: nil, service: nil, session_id: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status_code: nil, stream_type: nil, sub_resource: nil, success: nil, transport_type: nil, tuples: nil, user_agent: nil)
+        sig { params(account_secure_id: T.nilable(T::Array[::String]), action: T.nilable(T::Array[::String]), action_id: T.nilable(T::Array[::String]), action_run_id: T.nilable(T::Array[::String]), action_type: T.nilable(T::Array[::String]), agent_id: T.nilable(T::Array[::String]), auth_id: T.nilable(T::Array[::String]), auth_type: T.nilable(T::Array[::String]), category: T.nilable(T::Array[::String]), child_resource: T.nilable(T::Array[::String]), conditions: T.nilable(T::Array[Models::Shared::LogQueryConditionDto]), connector_key: T.nilable(T::Array[::String]), connector_owner: T.nilable(T::Array[::String]), connector_profile_id: T.nilable(T::Array[::String]), connector_version: T.nilable(T::Array[::String]), end_time: T.nilable(::String), http_method: T.nilable(T::Array[Models::Shared::LogsPostDtoHttpMethod]), ip_address: T.nilable(T::Array[::String]), is_background: T.nilable(T::Boolean), log_id: T.nilable(T::Array[::String]), log_type: T.nilable(T::Array[Models::Shared::LogsPostDtoLogType]), mode: T.nilable(T::Array[::String]), order_by: T.nilable(Models::Shared::LogsPostDtoOrderBy), order_direction: T.nilable(Models::Shared::LogsPostDtoOrderDirection), origin_owner_id: T.nilable(T::Array[::String]), origin_owner_name: T.nilable(T::Array[::String]), provider: T.nilable(T::Array[::String]), request_id: T.nilable(T::Array[::String]), resource: T.nilable(T::Array[::String]), risk_level: T.nilable(T::Array[Models::Shared::LogsPostDtoRiskLevel]), service: T.nilable(T::Array[::String]), session_id: T.nilable(T::Array[::String]), source_id: T.nilable(T::Array[::String]), source_type: T.nilable(T::Array[::String]), source_value: T.nilable(T::Array[::String]), start_time: T.nilable(::String), status_code: T.nilable(T::Array[::String]), stream_type: T.nilable(T::Array[::String]), sub_resource: T.nilable(T::Array[::String]), success: T.nilable(T::Boolean), transport_type: T.nilable(T::Array[::String]), tuples: T.nilable(T::Array[::String]), user_agent: T.nilable(T::Array[::String])).void }
+        def initialize(account_secure_id: nil, action: nil, action_id: nil, action_run_id: nil, action_type: nil, agent_id: nil, auth_id: nil, auth_type: nil, category: nil, child_resource: nil, conditions: nil, connector_key: nil, connector_owner: nil, connector_profile_id: nil, connector_version: nil, end_time: nil, http_method: nil, ip_address: nil, is_background: nil, log_id: nil, log_type: nil, mode: nil, order_by: nil, order_direction: nil, origin_owner_id: nil, origin_owner_name: nil, provider: nil, request_id: nil, resource: nil, risk_level: nil, service: nil, session_id: nil, source_id: nil, source_type: nil, source_value: nil, start_time: nil, status_code: nil, stream_type: nil, sub_resource: nil, success: nil, transport_type: nil, tuples: nil, user_agent: nil)
           @account_secure_id = account_secure_id
           @action = action
           @action_id = action_id
@@ -107,6 +111,7 @@ module StackOne
           @auth_type = auth_type
           @category = category
           @child_resource = child_resource
+          @conditions = conditions
           @connector_key = connector_key
           @connector_owner = connector_owner
           @connector_profile_id = connector_profile_id
@@ -125,6 +130,7 @@ module StackOne
           @provider = provider
           @request_id = request_id
           @resource = resource
+          @risk_level = risk_level
           @service = service
           @session_id = session_id
           @source_id = source_id
@@ -153,6 +159,7 @@ module StackOne
           return false unless @auth_type == other.auth_type
           return false unless @category == other.category
           return false unless @child_resource == other.child_resource
+          return false unless @conditions == other.conditions
           return false unless @connector_key == other.connector_key
           return false unless @connector_owner == other.connector_owner
           return false unless @connector_profile_id == other.connector_profile_id
@@ -171,6 +178,7 @@ module StackOne
           return false unless @provider == other.provider
           return false unless @request_id == other.request_id
           return false unless @resource == other.resource
+          return false unless @risk_level == other.risk_level
           return false unless @service == other.service
           return false unless @session_id == other.session_id
           return false unless @source_id == other.source_id

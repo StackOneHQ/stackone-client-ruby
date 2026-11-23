@@ -21,7 +21,7 @@ module StackOne
         # True if the end of the time off request ends half way through the day
         field :end_half_day, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Boolean.new, Models::Shared::HrisCreateTimeOffRequestDto2)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('end_half_day') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
 
         field :reason, Crystalline::Nilable.new(Models::Shared::HrisCreateTimeOffRequestDtoReason), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('reason') } }
         # The start date of the time off request (ISO8601 date-time without timezone)
@@ -37,7 +37,7 @@ module StackOne
         # @deprecated true: This will be removed in a future release, please migrate away from it as soon as possible.
         field :type, Crystalline::Nilable.new(Models::Shared::HrisCreateTimeOffRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
 
-        sig { params(approver_id: T.nilable(::String), comment: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), passthrough: T.nilable(T::Hash[Symbol, ::Object]), reason: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), status: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType)).void }
+        sig { params(approver_id: T.nilable(::String), comment: T.nilable(::String), end_date: T.nilable(::String), end_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDto2)), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), reason: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoReason), start_date: T.nilable(::String), start_half_day: T.nilable(T.any(T::Boolean, Models::Shared::HrisCreateTimeOffRequestDtoSchemas2)), status: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoStatus), time_off_policy_id: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateTimeOffRequestDtoType)).void }
         def initialize(approver_id: nil, comment: nil, end_date: nil, end_half_day: nil, passthrough: nil, reason: nil, start_date: nil, start_half_day: nil, status: nil, time_off_policy_id: nil, type: nil)
           @approver_id = approver_id
           @comment = comment

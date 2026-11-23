@@ -37,11 +37,11 @@ module StackOne
         # The status of the time entry
         field :status, Crystalline::Nilable.new(Models::Shared::TimeEntriesStatus), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
         # The updated_at date
         field :updated_at, Crystalline::Nilable.new(::DateTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('updated_at'), 'decoder': ::StackOne::Utils.datetime_from_iso_format(true) } }
 
-        sig { params(break_duration: T.nilable(::Float), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), end_time: T.nilable(::DateTime), hours_worked: T.nilable(::Float), id: T.nilable(::String), labor_type: T.nilable(Models::Shared::LaborType), location: T.nilable(Models::Shared::Location), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(Models::Shared::TimeEntriesStatus), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
+        sig { params(break_duration: T.nilable(::Float), created_at: T.nilable(::DateTime), employee_id: T.nilable(::String), end_time: T.nilable(::DateTime), hours_worked: T.nilable(::Float), id: T.nilable(::String), labor_type: T.nilable(Models::Shared::LaborType), location: T.nilable(Models::Shared::Location), remote_employee_id: T.nilable(::String), remote_id: T.nilable(::String), start_time: T.nilable(::DateTime), status: T.nilable(Models::Shared::TimeEntriesStatus), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), updated_at: T.nilable(::DateTime)).void }
         def initialize(break_duration: nil, created_at: nil, employee_id: nil, end_time: nil, hours_worked: nil, id: nil, labor_type: nil, location: nil, remote_employee_id: nil, remote_id: nil, start_time: nil, status: nil, unified_custom_fields: nil, updated_at: nil)
           @break_duration = break_duration
           @created_at = created_at

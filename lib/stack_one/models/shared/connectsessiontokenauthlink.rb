@@ -34,6 +34,8 @@ module StackOne
         field :categories, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ConnectSessionTokenAuthLinkCategories)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('categories') } }
         # The connector profile ID associated with this connect session
         field :connector_profile_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_id') } }
+        # The ordered connector profile IDs this connect session is restricted to, or null when it is not restricted to a list.
+        field :connector_profile_ids, Crystalline::Nilable.new(Crystalline::Array.new(::String)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('connector_profile_ids') } }
         # External trigger token to be used to trigger actions on the account
         field :external_trigger_token, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('external_trigger_token') } }
         # Deprecated: use `connector_profile_id` instead. The integration ID (UUID) associated with this connect session.
@@ -53,8 +55,8 @@ module StackOne
         # The connect session account type
         field :type, Crystalline::Nilable.new(Models::Shared::ConnectSessionTokenAuthLinkType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type'), 'decoder': ::StackOne::Utils.open_enum_from_string(Models::Shared::ConnectSessionTokenAuthLinkType, true) } }
 
-        sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionTokenAuthLinkCategories]), connector_profile_id: T.nilable(::String), external_trigger_token: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), latest_connection_attempt: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkLatestConnectionAttempt), metadata: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkType)).void }
-        def initialize(auth_link_url:, created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, token:, account_id: nil, categories: nil, connector_profile_id: nil, external_trigger_token: nil, integration_id: nil, label: nil, latest_connection_attempt: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
+        sig { params(auth_link_url: ::String, created_at: ::DateTime, id: ::Float, organization_id: ::String, origin_owner_id: ::String, origin_owner_name: ::String, project_id: ::String, token: ::String, account_id: T.nilable(::String), categories: T.nilable(T::Array[Models::Shared::ConnectSessionTokenAuthLinkCategories]), connector_profile_id: T.nilable(::String), connector_profile_ids: T.nilable(T::Array[::String]), external_trigger_token: T.nilable(::String), integration_id: T.nilable(::String), label: T.nilable(::String), latest_connection_attempt: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkLatestConnectionAttempt), metadata: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkMetadata), origin_username: T.nilable(::String), provider: T.nilable(::String), type: T.nilable(Models::Shared::ConnectSessionTokenAuthLinkType)).void }
+        def initialize(auth_link_url:, created_at:, id:, organization_id:, origin_owner_id:, origin_owner_name:, project_id:, token:, account_id: nil, categories: nil, connector_profile_id: nil, connector_profile_ids: nil, external_trigger_token: nil, integration_id: nil, label: nil, latest_connection_attempt: nil, metadata: nil, origin_username: nil, provider: nil, type: nil)
           @auth_link_url = auth_link_url
           @created_at = created_at
           @id = id
@@ -66,6 +68,7 @@ module StackOne
           @account_id = account_id
           @categories = categories
           @connector_profile_id = connector_profile_id
+          @connector_profile_ids = connector_profile_ids
           @external_trigger_token = external_trigger_token
           @integration_id = integration_id
           @label = label
@@ -90,6 +93,7 @@ module StackOne
           return false unless @account_id == other.account_id
           return false unless @categories == other.categories
           return false unless @connector_profile_id == other.connector_profile_id
+          return false unless @connector_profile_ids == other.connector_profile_ids
           return false unless @external_trigger_token == other.external_trigger_token
           return false unless @integration_id == other.integration_id
           return false unless @label == other.label

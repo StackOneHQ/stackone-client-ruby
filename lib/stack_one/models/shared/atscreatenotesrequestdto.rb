@@ -17,11 +17,11 @@ module StackOne
 
         field :content, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::NoteContentApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('content') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Visibility of the note
         field :visibility, Crystalline::Nilable.new(Models::Shared::Visibility), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('visibility') } }
 
-        sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::NoteContentApiModel]), passthrough: T.nilable(T::Hash[Symbol, ::Object]), visibility: T.nilable(Models::Shared::Visibility)).void }
+        sig { params(author_id: T.nilable(::String), content: T.nilable(T::Array[Models::Shared::NoteContentApiModel]), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), visibility: T.nilable(Models::Shared::Visibility)).void }
         def initialize(author_id: nil, content: nil, passthrough: nil, visibility: nil)
           @author_id = author_id
           @content = content

@@ -10,8 +10,10 @@ end
 class StackOne::Models::Shared::ActionLogsPaginated
   def data(); end
   def data=(str_); end
-  def query(); end
-  def query=(str_); end
+  def page(); end
+  def page=(str_); end
+  def page_size(); end
+  def page_size=(str_); end
   def total(); end
   def total=(str_); end
 end

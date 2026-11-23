@@ -33,7 +33,7 @@ module StackOne
         # The job title of the employee
         field :job_title, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('job_title') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # The currency used for pay
         field :pay_currency, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('pay_currency') } }
         # How often the employee is paid
@@ -47,11 +47,11 @@ module StackOne
         # The type of employment
         field :type, Crystalline::Nilable.new(Models::Shared::HrisCreateEmploymentRequestDtoType), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('type') } }
         # Custom Unified Fields configured in your StackOne project
-        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
+        field :unified_custom_fields, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('unified_custom_fields') } }
 
         field :work_time, Crystalline::Nilable.new(Models::Shared::HrisCreateEmploymentRequestDtoWorkTime), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('work_time') } }
 
-        sig { params(contract_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoContractType), effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType), employment_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType), end_date: T.nilable(::DateTime), grade: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoGrade), job_id: T.nilable(::String), job_title: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency), pay_period: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoType), unified_custom_fields: T.nilable(T::Hash[Symbol, ::Object]), work_time: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoWorkTime)).void }
+        sig { params(contract_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoContractType), effective_date: T.nilable(::DateTime), employment_contract_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentContractType), employment_type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoEmploymentType), end_date: T.nilable(::DateTime), grade: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoGrade), job_id: T.nilable(::String), job_title: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), pay_currency: T.nilable(::String), pay_frequency: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayFrequency), pay_period: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoPayPeriod), pay_rate: T.nilable(::String), payroll_code: T.nilable(::String), type: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoType), unified_custom_fields: T.nilable(T::Hash[::Symbol, ::Object]), work_time: T.nilable(Models::Shared::HrisCreateEmploymentRequestDtoWorkTime)).void }
         def initialize(contract_type: nil, effective_date: nil, employment_contract_type: nil, employment_type: nil, end_date: nil, grade: nil, job_id: nil, job_title: nil, passthrough: nil, pay_currency: nil, pay_frequency: nil, pay_period: nil, pay_rate: nil, payroll_code: nil, type: nil, unified_custom_fields: nil, work_time: nil)
           @contract_type = contract_type
           @effective_date = effective_date

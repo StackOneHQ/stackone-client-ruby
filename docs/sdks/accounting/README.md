@@ -411,7 +411,7 @@ s = ::StackOne::StackOne.new(
 req = Models::Operations::AccountingListCompaniesRequest.new(
   prefer: 'heartbeat',
   fields_: 'id,remote_id,name,base_currency,fiscal_year_start_month,fiscal_year_start_day,unified_custom_fields',
-  filter: Models::Operations::AccountingListCompaniesQueryParamFilter.new(
+  filter: Models::Operations::QueryParamFilter.new(
     updated_after: DateTime.iso8601('2020-01-01T00:00:00.000Z')
   ),
   x_account_id: '<id>'

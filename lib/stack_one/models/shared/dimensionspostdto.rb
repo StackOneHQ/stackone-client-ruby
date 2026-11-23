@@ -20,7 +20,7 @@ module StackOne
         field :max_values, Crystalline::Nilable.new(::Float), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('max_values') } }
 
         sig { params(dimensions: T::Array[Models::Shared::DimensionsPostDtoDimensions], filters: T.nilable(Models::Shared::DimensionsPostDtoFilters), max_values: T.nilable(::Float)).void }
-        def initialize(dimensions:, filters: nil, max_values: 200.0)
+        def initialize(dimensions:, filters: nil, max_values: 100.0)
           @dimensions = dimensions
           @filters = filters
           @max_values = max_values

@@ -21,13 +21,13 @@ module StackOne
         # Candidate last name
         field :last_name, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('last_name') } }
         # Value to pass through to the provider
-        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
+        field :passthrough, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('passthrough') } }
         # Candidate profile url
         field :profile_url, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('profile_url') } }
         # Provider's unique identifier
         field :remote_id, Crystalline::Nilable.new(::String), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('remote_id') } }
 
-        sig { params(emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[Symbol, ::Object]), profile_url: T.nilable(::String), remote_id: T.nilable(::String)).void }
+        sig { params(emails: T.nilable(T::Array[Models::Shared::CandidateEmail]), first_name: T.nilable(::String), id: T.nilable(::String), last_name: T.nilable(::String), passthrough: T.nilable(T::Hash[::Symbol, ::Object]), profile_url: T.nilable(::String), remote_id: T.nilable(::String)).void }
         def initialize(emails: nil, first_name: nil, id: nil, last_name: nil, passthrough: nil, profile_url: nil, remote_id: nil)
           @emails = emails
           @first_name = first_name

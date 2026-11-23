@@ -15,13 +15,13 @@ module StackOne
         # The HTTP status code returned by the provider
         field :status, ::Float, { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('status'), required: true } }
         # The response data from the provider. Can be an object, array, or primitive value.
-        field :data, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Hash.new(Symbol, ::Object), Crystalline::Array.new(Crystalline::Hash.new(Symbol, ::Object)), ::String, ::Float, Crystalline::Boolean.new)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
+        field :data, Crystalline::Nilable.new(Crystalline::Union.new(Crystalline::Hash.new(::Symbol, ::Object), Crystalline::Array.new(Crystalline::Hash.new(::Symbol, ::Object)), ::String, ::Float, Crystalline::Boolean.new)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('data') } }
         # The headers returned by the provider
-        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
+        field :headers, Crystalline::Nilable.new(Crystalline::Hash.new(::Symbol, ::Object)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('headers') } }
         # Provider-specific errors if any occurred
         field :provider_errors, Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::ProviderErrorApiModel)), { 'format_json': { 'letter_case': ::StackOne::Utils.field_name('provider_errors') } }
 
-        sig { params(status: ::Float, data: T.nilable(T.any(T::Hash[Symbol, ::Object], T::Array[T::Hash[Symbol, ::Object]], ::String, ::Float, T::Boolean)), headers: T.nilable(T::Hash[Symbol, ::Object]), provider_errors: T.nilable(T::Array[Models::Shared::ProviderErrorApiModel])).void }
+        sig { params(status: ::Float, data: T.nilable(T.any(T::Hash[::Symbol, ::Object], T::Array[T::Hash[::Symbol, ::Object]], ::String, ::Float, T::Boolean)), headers: T.nilable(T::Hash[::Symbol, ::Object]), provider_errors: T.nilable(T::Array[Models::Shared::ProviderErrorApiModel])).void }
         def initialize(status:, data: nil, headers: nil, provider_errors: nil)
           @status = status
           @data = data

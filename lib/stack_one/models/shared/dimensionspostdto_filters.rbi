@@ -28,6 +28,8 @@ class StackOne::Models::Shared::DimensionsPostDtoFilters
   def category=(str_); end
   def child_resource(); end
   def child_resource=(str_); end
+  def conditions(); end
+  def conditions=(str_); end
   def connector_key(); end
   def connector_key=(str_); end
   def connector_owner(); end
@@ -64,6 +66,8 @@ class StackOne::Models::Shared::DimensionsPostDtoFilters
   def request_id=(str_); end
   def resource(); end
   def resource=(str_); end
+  def risk_level(); end
+  def risk_level=(str_); end
   def service(); end
   def service=(str_); end
   def session_id(); end

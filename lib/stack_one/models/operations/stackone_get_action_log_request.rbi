@@ -10,4 +10,6 @@ end
 class StackOne::Models::Operations::StackoneGetActionLogRequest
   def action_run_id(); end
   def action_run_id=(str_); end
+  def expand(); end
+  def expand=(str_); end
 end

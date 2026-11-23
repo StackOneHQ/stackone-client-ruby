@@ -1,0 +1,10 @@
+# LogQueryConditionDto
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `field`                                                                                       | [Models::Shared::LogQueryConditionDtoField](../../models/shared/logqueryconditiondtofield.md) | :heavy_check_mark:                                                                            | The log field to compare                                                                      |
+| `operator`                                                                                    | [Models::Shared::Operator](../../models/shared/operator.md)                                   | :heavy_check_mark:                                                                            | eq matches any of the values and ne none of them; gt, gte, lt and lte compare one number      |
+| `values`                                                                                      | T::Array<*::String*>                                                                          | :heavy_check_mark:                                                                            | Alternative values within the field; a comparison takes exactly one finite number             |
